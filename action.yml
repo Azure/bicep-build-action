@@ -1,6 +1,10 @@
-name: Bicep Build
+name: bicep-build-output
 description: Build an ARM template from Bicep main file
 
+branding:
+  icon: check
+  color: blue
+  
 inputs:
   bicepFilePath:
     description: Bicep main file path
