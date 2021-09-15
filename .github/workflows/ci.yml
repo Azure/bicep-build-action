@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+    paths:
+      - "action.yml"
+      - ".github/workflows/ci.yml"
+      - "samples/main.bicep"
+
+jobs:
+  build_and_test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+
+      - name: Run Bicep Build action
+        uses: ./
+        with:
+          bicepFilePath: ./samples/main.bicep
+          outputFilePath: ./samples/azuredeploy.json
+
+      - name: Test action output
+        shell: bash
+        run: |
+          FILE="./samples/azuredeploy.json"
+          if test -f "$FILE"; then
+            echo "$FILE created successfully"
+          else
+            echo "$FILE not found."
+            exit 1
+          fi
+
