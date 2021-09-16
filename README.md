@@ -20,7 +20,7 @@ If your GitHub Actions workflows are running on a [self-hosted runner](https://d
 ```yml
 steps:
   - name: Bicep Build
-    uses: Azure-Samples/bicep-build-action@v1.0.0
+    uses: Azure/bicep-build-action@v1.0.0
     with:
       bicepFilePath: main.bicep
       outputFilePath: azuredeploy.json
