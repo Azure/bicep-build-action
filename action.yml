@@ -18,5 +18,5 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: az bicep build --file ${{ inputs.bicepFilePath }} --outfile ${{ inputs.outputFilePath }}
+    - run: az bicep build --file "${{ inputs.bicepFilePath }}" --outfile "${{ inputs.outputFilePath }}"
       shell: bash
